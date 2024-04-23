@@ -1,0 +1,63 @@
+<!-- include header -->
+<%- include('include/_header') %>
+    <!-- /include header -->
+    <%- include('include/messages') %>
+        <!-- ========== partes ========== background:0 #062cc;-->
+        <div class="container mt--8 pb-5 p-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-7">
+                    <div class="card border-0" style="background-color: #c0d1fb;">
+                        <%- include('include/errors') %>
+                            <div class="card-header text-center pt-3">
+                                <h1 class="h4 ">
+                                    Iniciar Sesión
+                                </h1>
+                            </div>
+                            <img class="rounded-circle mx-auto d-block logo m-3" src="/img/favicon.png" alt="Logo" />
+                            <div class="card-body px-lg-5 py-lg-5">
+                                <form role="form" method="POST" action="/signin">
+                                    <div class="form-group mb-3">
+                                        <div class="input-group input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-at"></i></span>
+                                            </div>
+                                            <input class="form-control" placeholder="Email" type="email" name="email"
+                                                value="" required autocomplete="email" autofocus>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-key"></i></span>
+                                            </div>
+                                            <input class="form-control" placeholder="Contraseña" type="password"
+                                                name="password" required autocomplete="current-password">
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary my-4"> <i
+                                                class="fas fa-sign-in-alt"></i>
+                                            Iniciar</button>
+                                    </div>
+
+                                </form>
+                                <p class="text-center">No tiene una cuenta?<a href="/signup"
+                                        class="text-info">Registrese</a>
+                                </p>
+                            </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <a href="" class="text-light"><small>¿Olvido la contraseña?</small></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ========== pasrtes ========== <div class="col-lg-5 col-md-7"> -->
+
+
+
+        <!-- include header -->
+        <%- include('include/_footer') %>
+            <!-- /include header -->

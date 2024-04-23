@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="/"> <img src="/img/calendarlogo.png" width="30" height="30"
+                class="d-inline-block align-top" alt=""> agendaMe</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/"> <i class="fa fa-home"></i> Inicio <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <% if(user && user.rol==0) { %>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/usuarios"><i class="fa fa-users"></i> Usuarios</a>
+
+                    </li>
+                    <%}%>
+                        <% if(user) { %>
+                            <li class="nav-item active">
+                                <a class="nav-link " href="/reportes"> <i class="fa fa-book"></i> Reportes</a>
+                            </li>
+                            <%}%>
+
+                                <li class="nav-item ">
+                                    <a class="nav-link " href="/about">Acerca de</a>
+                                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+
+                <% if(user) { %>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-success dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-tasks"></i> Tareas: <%=user.name%>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/task-today"> <i class="fa fa-calendar-plus-o"></i> Hoy</a>
+                            <a class="dropdown-item" href="/task-of-week">Esta semana</a>
+                            <a class="dropdown-item" href="/task-mont">Este mes</a>
+                            <a class="dropdown-item" href="/all-tasks"> Todas</a>
+                            <div class="dropdown-divider">q</div>
+                            <a class="dropdown-item" href="/logout"> <i class="fa fa-sign-out"></i> Cerrar Sesión</a>
+                        </div>
+
+                    </li>
+                    <!-- Example split danger button -->
+
+                    <% }else{%>
+                        <li class="nav-item active">
+                            <a class="nav-link  " href="/signup">Registrarse <i class="fa fa-user-plus"></i></a>
+                        </li>
+                        <%}%>
+            </ul>
+        </div>
+    </div>
+</nav>

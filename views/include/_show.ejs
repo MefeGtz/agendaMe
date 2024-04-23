@@ -1,0 +1,52 @@
+<% var hoy=new Date();%>
+    <%for(var i=0; i < tasks.length; i++) { %>
+        <tr>
+            <td>
+                <%= i + 1 %>
+            </td>
+            <td>
+                <%= tasks[i].name_task %>
+            </td>
+            <td>
+                <%const dat=new Date((tasks[i].date))%>
+                    <%= dat.toISOString().slice(0, 10);%>
+            </td>
+            <td>
+                <% var hora=tasks[i].start_h %>
+                    <%if(hora==0){%>
+                        <%= '12:00 AM' %>
+                            <%}else if (hora< 12){%>
+                                <%= hora+':00 AM' %>
+                                    <%} else if(hora==12){%>
+                                        <%= '12:00 PM' %>
+                                            <%}else if (hora< 24){%>
+                                                <%= ((hora-12)+':00 PM')%>
+                                                    <%}%>
+            </td>
+            <td>
+
+                <% var hora=tasks[i].end_h %>
+                    <%if(hora==0){%>
+                        <%= '12:00 AM' %>
+                            <%}else if (hora< 12){%>
+                                <%= hora+':00 AM' %>
+                                    <%} else if(hora==12){%>
+                                        <%= '12:00 PM' %>
+                                            <%}else if (hora< 24){%>
+                                                <%= ((hora-12)+':00 PM')%>
+                                                    <%}%>
+            </td>
+            <td>
+                <%= tasks[i].description%>
+            </td>
+            <td>
+                <a href="/update-task?id=<%= tasks[i]._id%>" class="btn border-shadow update">
+                    <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                </a>
+                <a class="btn border-shadow delete" data-id=<%=tasks[i]._id%> >
+                    <span class="text-gradient"><i class="fas fa-times"></i></span>
+                </a>
+            </td>
+        </tr>
+        <% } %>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>

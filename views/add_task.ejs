@@ -1,0 +1,30 @@
+<!-- include header -->
+<%- include('include/_header') %>
+    <!-- /include header -->
+
+    <!-- Main Site -->
+    <main id="site-main">
+        <div class="container">
+            <%- include('include/messages') %>
+                <div class="box-nav d-flex justify-between">
+                    <div class="filter">
+                        <a href="/" class="">
+                            <h3> <i class="fa fa-reply-all" style="font-size:24px"></i> Volver</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="form-title text-center">
+                    <h2 class="text-dark">Nueva Actividad</h2>
+                    <span class="text-light"> creara una nueva actividad</span>
+                </div>
+
+                <!-- add form -->
+                <%- include('include/_form') %>
+
+        </div>
+    </main>
+    <!-- /Main Site -->
+
+    <!-- include footer -->
+    <%- include('include/_footer') %>
+        <!-- /include footer -->

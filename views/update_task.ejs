@@ -1,0 +1,116 @@
+<!-- include header -->
+<%- include('include/_header') %>
+    <!-- /include header -->
+
+    <!-- Main Site -->
+
+    <div class="container p-4">
+        <div class="box-nav d-flex justify-between">
+            <div class="filter">
+                <a href="/" class="">
+                    <h3> <i class="fa fa-reply-all" style="font-size:24px"></i> Volver</h3>
+                </a>
+            </div>
+        </div>
+        <div class="row bg-gray p-4">
+            <div class="col-md-5 mx-auto">
+                <div class="card" style="background-color: #c0d1fb;">
+                    <%- include('include/errors') %>
+                        <%- include('include/messages') %>
+
+                            <div class="card-header border-0">
+
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <center>
+                                            <h4 class="mb-0">Editar Actividad <i class='fa fa-edit'></i></h4>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <!-- add form  -->
+                                <!-- form handling -->
+                                <form action="/update-task/<%= task._id%>?_method=PUT" method="POST" id="update">
+                                    <input type="hidden" name="_method" value="PUT">
+                                    <div class="">
+                                        <div class="mb-3">
+                                            <label for="name" class="text-light">Nombre:</label>
+                                            <input type="hidden" name="id" value="<%=task._id%>">
+                                            <input type="text" name="name_task" class="form-control" required
+                                                value="<%=task.name_task%>" placeholder="Actividad">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="Fecha_cita" class="text-light">Fecha de Cita</label>
+                                            <input type="date" name="date" class="form-control" required
+                                                value="<%=(task.date).slice(0,10)%>" placeholder="">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="Hora_inicial" class="text-light">Hora Inicial</label>
+                                            <select name="start_h" required class="form-control" id="horai"
+                                                placeholder="12:00 AM">
+                                                <option value="0">12:00 AM</option>
+                                                <% for(let i=1; i <=23; i++){ if(i < 12){%>
+                                                    <option value="<%= i%>" <%=task.start_h==i ? 'selected' :'' %> >
+                                                        <%=i%>:00 AM
+                                                    </option>
+                                                    <%}else if (i==12){%>
+                                                        <option value="<%= i%>" <%=task.start_h==i ? 'selected' :'' %> >
+                                                            <%=i%>:00 PM
+                                                        </option>
+                                                        <%}else if (i>12 ) {%>
+                                                            <option value="<%= i%>" <%=task.start_h==i ? 'selected' :''
+                                                                %> >
+                                                                <%=i-12%>:00 PM
+                                                            </option>
+                                                            <%}}%>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="Hora_final" class="text-light">Hora final</label>
+                                            <select name="end_h" required class="form-control" id="horaf"
+                                                placeholder="9:00 AM">
+                                                <option value="0">12:00 AM</option>
+                                                <% for(let i=1; i <=23; i++){ if(i < 12){%>
+                                                    <option value="<%= i%>" <%=task.end_h==i ? 'selected' :'' %> >
+                                                        <%=i%>:00 AM
+                                                    </option>
+                                                    <%}else if (i==12){%>
+                                                        <option value="<%= i%>" <%=task.end_h==i ? 'selected' :'' %> >
+                                                            <%=i%>:00 PM
+                                                        </option>
+                                                        <%}else if (i>12 ) {%>
+                                                            <option value="<%= i%>" <%=task.end_h==i ? 'selected' :'' %>
+                                                                >
+                                                                <%=i-12%>:00 PM
+                                                            </option>
+                                                            <%}}%>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Descripcion" class="text-light">Descripción</label>
+                                            <input type="text" class="form-control" name="description"
+                                                value="<%=task.description%>" placeholder=" Descripción">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <center> <button type="submit" class="btn btn-success">Guardar</button>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /Main Site -->
+
+    <!-- include footer -->
+    <%- include('include/_footer') %>
+        <!-- /include footer -->

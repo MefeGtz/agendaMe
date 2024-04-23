@@ -1,0 +1,49 @@
+<%- include('include/_header') %>
+    <!-- /include header -->
+    <!-- Main Site -->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between pt-1">
+
+                <a href="/add-task" class="border-shadow btn-success">
+                    <span class="text-light">
+                        Agregar tarea <i class='fas fa-clipboard-list'></i> <i class="fa fa-plus"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="card mx-auto">
+                <div class="card-body bg-primary">
+                    <center>
+                        <h3 class="text-light">Semana de <%=week.startday%> a <%=week.endday%>
+                        </h3>
+                    </center>
+                </div>
+            </div>
+            <!--form handling -->
+            <form action="/" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Fecha</th>
+                            <th>Hora Inicial</th>
+                            <th>Hora Final</th>
+                            <th>Descripción</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%- include('include/_show') %>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+    </main>
+    <!-- /Main Site  <%=tasks%>-->
+
+
+    <!-- include header -->
+    <%- include('include/_footer') %>
+        <!-- /include header -->

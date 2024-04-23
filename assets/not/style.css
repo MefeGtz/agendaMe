@@ -1,0 +1,58 @@
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-family: arial;
+    text-align: center;
+}
+
+.container .bx {
+    background: linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433',endColorstr='#bc1888',GradientType=1);
+    font-size: 150px;
+    border-radius: 35%;
+    color: white;
+}
+
+.container .notify::before {
+    position: absolute;
+    content: attr(data-count);
+    top: -22px;
+    right: -3px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+    padding: 3px 15px;
+    background: linear-gradient(#ff1a1a,#ff0000,#e60000);
+    border-radius: 50px;
+    line-height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    transition: opacity 0.1s ease-out;
+}
+
+.container .btn {
+    position: absolute;
+    left: 15px;
+    top: 200px;
+    height: 40px;
+    width: 120px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid #111755;
+    background: #1A237E;
+    border-radius: 3px;
+    line-height: 40px;
+    outline: none;
+    cursor: pointer;
+}
+
+.container .btn:hover {
+    background: #161d6a;
+}
+
+.notify.add-numb::before {
+    opacity: 1;
+}
